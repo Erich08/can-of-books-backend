@@ -7,13 +7,14 @@ mongoose.connect(process.env.DATABASE_URL);
 const Book = require('./book');
 
 const seed = async () => {
-    console.log('hello');
-    await Book.create({
-        tile: '1776',
-        author: 'David McCullough',
-        description: '1776 is a book written by David McCullough, published by Simon & Schuster on May 24, 2005. The work is a companion to McCullough\'s earlier biography of John Adams, and focuses on the events surrounding the start of the American Revolutionary War.',
-        url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942259/book3_wdcqd0.jpg'
-    })
+  console.log('hello');
+  await Book.create({
+    title: '1776',
+    author: 'David McCullough',
+    description: '1776 is a book written by David McCullough, published by Simon & Schuster on May 24, 2005. The work is a companion to McCullough\'s earlier biography of John Adams, and focuses on the events surrounding the start of the American Revolutionary War.',
+    url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942259/book3_wdcqd0.jpg'
+  });
+  console.log('1776');
 
   await Book.create({
     title: 'Think and Grow Rich',
@@ -37,7 +38,7 @@ const seed = async () => {
     description: 'The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America is a 2003 historical non-fiction book by Erik Larson presented in a novelistic style. ',
     url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942261/book10_whhajm.jpg'
   });
-  console.log('saved 50 shades of grey');
+  console.log('Devil in the White City');
 
   await Book.create({
     title: 'Twilight',
@@ -53,9 +54,9 @@ const seed = async () => {
     description: 'A “must-read” (The Washington Post) funny and practical guide to help you find, build, and keep the relationship of your dreams.Have you ever looked around and wondered, “Why has everyone found love except me?”',
     url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942260/book9_sl75hg.jpg'
   });
-  console.log('saved twilight');
+  console.log('saved How to Not Die Alone');
 
-  mongoose.disconnect(); 
+  mongoose.disconnect();
 };
 
 seed();
