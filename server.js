@@ -25,4 +25,11 @@ app.get('/test', (request, response) => {
 
 })
 
+app.get('/books', async (request, response) => {
+
+  const books = await Book.find({});
+  
+  response.send(books);
+})
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
