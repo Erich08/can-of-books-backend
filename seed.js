@@ -76,7 +76,7 @@ const seed = async () => {
     author: 'Benjamin H. Milligan',
     description:
       'A gripping history chronicling the fits and starts of American special operations and the ultimate rise of the Navy SEALs from unarmed frogmen to elite, go-anywhere commandos—as told by one of their own.“Deeply researched, well organized, and incredibly engaging . ',
-    url: 'https://res.cloudinary.com/dla4r1upe/image/upload/v1649105303/bwbtw_t59jee.jpg',
+    url: 'https://res.cloudinary.com/dla4r1upe/image/upload/v1649121419/bywater_jz4ivi.jpg',
   });
   console.log('saved By Water Beneath The Walls');
 

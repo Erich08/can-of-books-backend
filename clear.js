@@ -9,11 +9,11 @@ const Book = require('./book');
 async function clear() {
   try {
     await Book.deleteMany({});
-    console.log('Cats deleted!');
-  } catch(error) {
+    console.log('Books deleted!');
+  } catch (error) {
     console.error('something went terribly wrong when deleting: ', error);
   } finally {
-    mongoose.disconnect(); 
+    mongoose.disconnect();
   }
 }
 
