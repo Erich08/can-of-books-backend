@@ -13,6 +13,7 @@ const bookSchema = new Schema({
   rating: String,
   publishDate: String,
   dateAdded: String,
+  genre: String,
 });
 
 const Book = mongoose.model('Book', bookSchema);
