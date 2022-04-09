@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const Book = require('./book.js');
 const mongoose = require('mongoose');
+const { request } = require('express');
 
 const app = express();
 app.use(cors());
@@ -29,24 +30,36 @@ app.get('/books', async (request, response) => {
   response.send(books);
 });
 
-app.delete('/books/:id', async (request, response) => {
+app.delete('/books/:id', async (request, response, next) => {
   try {
     await Book.findByIdAndDelete(request.params.id);
     response.status(204).send('Book was successfully deleted.');
   } catch (error) {
     console.error(error);
+    next(error);
   }
 });
 
 app.use(express.json());
 
-app.post('/books', async (request, response) => {
+app.post('/books', async (request, response, next) => {
   try {
     const newBook = await Book.create(request.body);
     response.status(204).send('Book was successfully created.');
   } catch (error) {
     console.error(error);
+    next(error);
   }
 });
+
+app.put('/books/id:', async (request, response, next) => {
+  try {
+    const updateBook = await Book.findByIdAndUpdate(request.params.id, request.body, {new: true});
+    response.status(200).sendUpdate(updateBook);
+  } catch(error) {
+    console.error(error);
+    next(error);
+  }
+})
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
