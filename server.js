@@ -52,10 +52,10 @@ app.post('/books', async (request, response, next) => {
   }
 });
 
-app.put('/books/id:', async (request, response, next) => {
+app.put('/books/:id', async (request, response, next) => {
   try {
     const updateBook = await Book.findByIdAndUpdate(request.params.id, request.body, {new: true});
-    response.status(200).sendUpdate(updateBook);
+    response.status(200).send(updateBook);
   } catch(error) {
     console.error(error);
     next(error);
