@@ -2,11 +2,13 @@
 
 require('dotenv').config();
 const mongoose = require('mongoose');
+const { getMaxListeners } = require('./book');
 mongoose.connect(process.env.DATABASE_URL);
 
 const Book = require('./book');
+const Reading = require('./reading');
 
-const seed = async () => {
+const seedBook = async () => {
   console.log('hello');
   await Book.create({
     title: '1776',
@@ -110,4 +112,32 @@ const seed = async () => {
   mongoose.disconnect();
 };
 
-seed();
+const seedReading = async () => {
+  console.log('hello');
+  await Reading.create({
+    title: '1776',
+    author: 'David McCullough',
+    description:
+      "1776 is a book written by David McCullough, published by Simon & Schuster on May 24, 2005. The work is a companion to McCullough's earlier biography of John Adams, and focuses on the events surrounding the start of the American Revolutionary War.",
+    url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942259/book3_wdcqd0.jpg',
+    genre: 'Non-Fiction',
+    email: 'jaypesc@gmail.com'
+  });
+  console.log('1776');
+
+  await Reading.create({
+    title: 'Think and Grow Rich',
+    author: 'Napoleon Hill',
+    description:
+      'Think and Grow Rich is a book written by Napoleon Hill in 1937 and promoted as a personal development and self-improvement book. He claimed to be inspired by a suggestion from business magnate and later-philanthropist Andrew Carnegie.',
+    url: 'https://res.cloudinary.com/dxg5jg10h/image/upload/v1648942258/book11_zysffw.jpg',
+    genre: 'Non-Fiction',
+    email: 'jaypesc@gmail.com'
+  });
+  console.log('1776');
+
+  mongoose.disconnect();
+};
+
+seedBook();
+seedReading();
